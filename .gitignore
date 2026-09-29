@@ -63,3 +63,4 @@ ui_dump*.xml
 **/.idea/
 **/*.keystore
 **/keystore.properties
+*.license_backup
