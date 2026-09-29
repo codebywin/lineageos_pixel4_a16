@@ -1,16 +1,17 @@
 $sdkPlatformJar = "C:\Users\admin\AppData\Local\Android\Sdk\platforms\android-34\android.jar"
 $d8Path = "C:\Users\admin\AppData\Local\Android\Sdk\build-tools\34.0.0\d8.bat"
-$compileDir = "c:\Users\admin\Desktop\codebywin\build_lineageOS_pixel4_a16\dump_device\compile_src"
-$classesDir = "c:\Users\admin\Desktop\codebywin\build_lineageOS_pixel4_a16\dump_device\compile_classes"
-$dexDir = "c:\Users\admin\Desktop\codebywin\build_lineageOS_pixel4_a16\dump_device\compile_dex"
-$stubsDir = "c:\Users\admin\Desktop\codebywin\build_lineageOS_pixel4_a16\dump_device\stubs"
+$baseDir = (Get-Item "$PSScriptRoot\..").FullName
+$compileDir = "$baseDir\dump_device\compile_src"
+$classesDir = "$baseDir\dump_device\compile_classes"
+$dexDir = "$baseDir\dump_device\compile_dex"
+$stubsDir = "$baseDir\dump_device\stubs"
 
 if (Test-Path $classesDir) { Remove-Item -Recurse -Force $classesDir }
 if (Test-Path $dexDir) { Remove-Item -Recurse -Force $dexDir }
 New-Item -ItemType Directory -Force -Path $classesDir | Out-Null
 New-Item -ItemType Directory -Force -Path $dexDir | Out-Null
 
-$frameworkJar = "c:\Users\admin\Desktop\codebywin\build_lineageOS_pixel4_a16\dump_device\framework.jar"
+$frameworkJar = "$baseDir\dump_device\framework.jar"
 # Đặt stubs trước sdkPlatformJar để override Camera
 $classPath = "$stubsDir;$frameworkJar;$sdkPlatformJar"
 

@@ -742,7 +742,7 @@ diff --git a/core/java/android/hardware/camera2/impl/VcamConfig.java b/core/java
 new file mode 100644
 --- /dev/null
 +++ b/core/java/android/hardware/camera2/impl/VcamConfig.java
-@@ -0,0 +1,168 @@
+@@ -0,0 +1,157 @@
 +package android.hardware.camera2.impl;
 +
 +import java.io.BufferedReader;
@@ -752,13 +752,10 @@ new file mode 100644
 +
 +public class VcamConfig {
 +    public static final String DISABLE_FLAG = "vcam_disable";
-+    public static final String MIC_DISABLE_FLAG = "vcam_mic_disable";
-+    public static final String MIC_MIX_FLAG = "vcam_mic_mix";
 +    public static final String KYC_FLASH_FLAG = "vcam_kyc_flash";
 +    public static final String ZOOM_FILE = "vcam_zoom.cfg";
 +    public static final String PAN_FILE = "vcam_pan.cfg";
 +    public static final String TARGET_VIDEO = "vcam.mp4";
-+    public static final String TARGET_AUDIO = "vcam.wav";
 +    public static final String RESET_FLAG = "vcam_reset";
 +    public static final String ROTATION_FILE = "vcam_rotation";
 +
@@ -772,14 +769,6 @@ new file mode 100644
 +
 +    public static boolean isPaused() {
 +        return isFlagActive(PAUSE_FLAG);
-+    }
-+
-+    public static boolean isMicDisabled() {
-+        return isFlagActive(MIC_DISABLE_FLAG);
-+    }
-+
-+    public static boolean isMicMix() {
-+        return isFlagActive(MIC_MIX_FLAG);
 +    }
 +
 +    public static boolean isKycFlashEnabled() {
